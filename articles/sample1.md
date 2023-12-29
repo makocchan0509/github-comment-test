@@ -8,8 +8,6 @@ published: true
 
 ## はじめに
 
-こんにちは。クラウドエース株式会社で SRE をしている間瀬です。
-
 今回は先日紹介したCloud Run のマルチコンテナデプロイ機能に関連してサイドカーコンテナとして Envoy と Open Policy Agent (以下、OPA)
 をデプロイして認証認可を行う方法を紹介します。
 また、認証については今回は Keycloak を使って Open ID Connect (以下、OIDC) による認証を行います。
@@ -35,6 +33,7 @@ https://zenn.dev/cloud_ace/articles/036f6056a620fe
 4. Cloud Run 上の Envoy コンテナにてJWTを検証して認証されたリクエストかチェック
 5. OPA コンテナにて Envoy コンテナより連携された JWT上のペイロードを基に Backend API へアクセス可能なリクエストかチェック
 6. 上記 4. 及び 5. にてパスされたリクエストのみ Envoy から Backend API へルーティング
+7. あいうえお
 
 各構成要素について簡単に説明させていただきます。
 
@@ -43,6 +42,7 @@ https://zenn.dev/cloud_ace/articles/036f6056a620fe
 今回は React のサンプルアプリをベースにKeycloakでの認証機能、API アクセス機能を追加しています。
 Keyclokとの連携についてはkeycloak-jsという package を利用しています。
 ※フロントエンドの実装が苦手なので、たいしたコード書けていません。。
+いやー本当苦手なんですよね。
 
 https://www.npmjs.com/package/keycloak-js
 
